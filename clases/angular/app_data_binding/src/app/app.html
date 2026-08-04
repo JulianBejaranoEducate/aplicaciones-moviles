@@ -1,0 +1,17 @@
+<router-outlet>
+
+<main class="container-sm">
+  <header class="container-fluid">
+    <h1> {{title}} </h1> <!-- Interpolación de datos -->
+    <section>
+      <p [innerHTML]="textP"></p> <!-- Por propiedad -->
+    </section>
+    <section>
+      <input class="form-control form-control-lg" type="number" [(ngModel)]="edad">
+      <p> {{edad}} </p>
+      <button type="button" (click)="metodoClick()" class="btn btn-info">Evento</button>
+    </section>
+  </header>
+</main>  
+
+</router-outlet>
