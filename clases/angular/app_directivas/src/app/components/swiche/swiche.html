@@ -1,0 +1,28 @@
+<section>
+    <h2></h2>
+    <form>
+        <label for="estado">Seleccione un estado:</label>
+        <select name="estado" id="estado" [(ngModel)]="status">
+            <option value="aprobado">Aprobado</option>
+            <option value="rechazado">Rechazado</option>
+            <option value="pendiente">Pendiente</option>
+        </select>
+    </form>
+    <section>
+        <h3>Resultado1:{{ status }}</h3>
+        @switch (status) {
+            @case ('aprobado') {
+                <p><b>El estado es aprobado</b></p>
+            }
+            @case ('rechazado') {
+                <p><b>El estado es rechazado</b></p>
+            }
+            @case ('pendiente') {
+                <p><b>El estado es pendiente</b></p>
+            }
+            @default {
+                <p><b>Estado:</b></p>
+            }
+        }
+    </section>
+</section>

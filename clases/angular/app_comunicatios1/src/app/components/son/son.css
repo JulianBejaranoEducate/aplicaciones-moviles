@@ -1,0 +1,68 @@
+:host {
+  display: block;
+}
+ 
+.componente {
+  height: 100%;
+  overflow: hidden;
+  border: 3px solid #35a442;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0 5px 12px rgb(0 0 0 / 15%);
+}
+ 
+.encabezado {
+  padding: 16px;
+  color: white;
+  text-align: center;
+}
+ 
+.encabezado-hijo {
+  background-color: #45a84f;
+}
+ 
+.encabezado h2 {
+  margin: 0;
+  font-size: 24px;
+}
+ 
+.contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+ 
+.contenido p {
+  margin: 0;
+  color: #333333;
+}
+ 
+.mensaje {
+  display: block;
+  padding: 15px;
+  border: 2px solid #f0ba30;
+  border-radius: 8px;
+  color: #755000;
+  background-color: #fff9dd;
+  font-weight: bold;
+  text-align: center;
+}
+ 
+.boton {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+ 
+.boton-hijo {
+  background-color: #35a442;
+}
+ 
+.boton-hijo:hover {
+  background-color: #278332;
+}
