@@ -1,8 +1,23 @@
 ### **Explicación de cada sección**
  
-1. **Empezar a Orientar a Objetos la App**:
-   - Las rutas se orientan a objetos
-   - El servicio del servidor también se orienta a objetos
-2. **Colocamos una clase ServerBootstrap, aunque el nombre del file puede estar en minúscula**
+1. **Empezamos a usar promesas**:
+Como se debe hacer conexión a BD o a Event Broker(Apache Kafka, RabbitMQ, ActiveMQ, Nats, AWS EventBridges, etc) y a la hora de incializar todas estas conexiones ´pueden fallar, debemos saber cuál falló? o cuál se conectó?
+Debo asegurarme que:
+- Levantó el servidor
+- Que hay conexión a la BD
+- Conexión con el Event Broker
  
-3. Ser orienta a objetos las rutas, es decir el archivo app
+* Vamos a crear promesas sirven para operaciones asíncronas, puede tener estados:
+ 
+   - Pendiente (pending): La operación aún no ha terminado.
+   - Resuelta (fulfilled): La operación se completó exitosamente.
+   - Rechazada (rejected): Hubo un error en la operación.
+ 
+* Las promesas se utilizan para manejar tareas asíncronas como:
+ 
+   - Lectura y escritura de archivos.
+   - Consultas a bases de datos.
+   - Peticiones HTTP.
+ 
+2. Async - await
+3. Función clásica - flecha - autoinvocada
