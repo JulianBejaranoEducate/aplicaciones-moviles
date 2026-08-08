@@ -1,0 +1,19 @@
+.contenedor-contador {
+    width: min(900px, 92%);
+    margin: 40px auto;
+    padding: 24px;
+    border: 3px solid #123a78;
+    border-radius: 14px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.contenedor-contador h1 {
+    color: #b70e2e;
+}
+
+.componentes-hijos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}

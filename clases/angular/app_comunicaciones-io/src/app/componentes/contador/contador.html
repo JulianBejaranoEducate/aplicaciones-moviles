@@ -1,0 +1,17 @@
+<main class="contenedor-contador">
+    <header class="text-center mb-4">
+        <h1 class="h3"><b>Contador:</b>{{ contador }}</h1>
+    </header>
+
+    <section class="componentes-hijos">
+        <app-incrementar
+            [contador]="contador"
+            (cambioContador)="actualizarContador($event)">
+        </app-incrementar>
+
+        <app-decrementar
+            [contador]="contador"
+            (cambioContador)="actualizarContador($event)">
+        </app-decrementar>
+    </section>
+</main> 
