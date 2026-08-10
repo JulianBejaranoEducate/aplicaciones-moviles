@@ -8,6 +8,17 @@ Este repositorio contiene las carpetas de clase que sí se deben versionar, prin
 - `clases/nodejs/`: ejercicios y aplicaciones Node.js.
 - `proyecto/`: no se versiona.
 
+## Versiones de tecnologías
+
+Estas son las versiones que se están usando actualmente en los proyectos del repositorio:
+
+- Angular: `22.0.0` en todos los proyectos de `clases/angular/`.
+- Angular CLI y Angular Build: `22.0.7`.
+- Node.js: `v26.5.0` en el entorno actual.
+- npm: `12.0.1`.
+
+Al revisar los `package.json` de `app1`, `app_directivas`, `app_data_binding`, `app_comunicaciones-1`, `app_comunicaciones-2`, `app_comunicaciones-io` y `practica_parcial`, todos usan la misma versión base de Angular, por lo que no hay mezcla de versiones de Angular en esos proyectos.
+
 ## Reinstalar dependencias
 
 Después de clonar el repositorio en otro computador, primero asegúrate de tener instalado Node.js y npm. Luego entra a cada proyecto y ejecuta `npm install` dentro de su carpeta raíz.

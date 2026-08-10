@@ -1,0 +1,20 @@
+<main>
+    <header>
+        <h1>Comunicación entre componentes</h1>
+        <p>Contador: <strong>{{ contador() }}</strong></p>
+    </header>
+
+    <section>
+        <div>
+            <app-father
+            [valor]="contador()"
+            (valorIncrementdo)="actualizarContador($event)" />
+        </div>
+
+        <div>
+            <app-son
+            [valor]="contador()"
+            (valorDecrementado)="actualizarContador($event)" />
+        </div>
+    </section>
+</main>
