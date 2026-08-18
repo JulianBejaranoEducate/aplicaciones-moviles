@@ -34,7 +34,7 @@ const startingServer = async() => {
 // startingServer();
 
 /**
- * Función tipo autoinvocada
+ * Función tipo autoinvocada y anonima
 */
 
 (async () => {
