@@ -1,0 +1,32 @@
+<h1 class="h1 center">Lotería de Uniempresarial</h1>
+<div class="center container">
+    <app-balota [valor]="number1()" />
+    <app-balota [valor]="number2()" />
+    <app-balota [valor]="number3()" />
+    <app-balota [valor]="number4()" />
+    <app-balota [valor]="number5()" />
+</div>
+<div class="center">
+    <button (click)="playLotery()" class="button">JUGAR</button>
+    <button (click)="buscarGanadores()" class="button">VER GANADORES</button>
+</div>
+<hr>
+
+<section class="center">
+  <div>
+    <h2>{{ numberWin() }}</h2>
+  
+    @if (totalGanadores() > 0) {
+      <p>Se encontraron {{ totalGanadores() }} jugador(es) ganador(es).</p>
+    }
+  </div>
+</section>
+
+<section class="shadow-lg">
+  <div>
+    <app-jugadores class="center"
+      [numerosGanadores]="numerosSorteados()"
+      (cantidadGanadores)="onCantidadGanadores($event)"
+    />
+  </div>
+</section>
