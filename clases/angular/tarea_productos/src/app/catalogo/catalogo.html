@@ -1,0 +1,47 @@
+<main class="container my-4">
+
+  <header class="mb-4">
+    <h1 class="display-6">
+      Catálogo de Productos
+    </h1>
+  </header>
+
+  <div class="row g-4">
+
+    <section class="col-md-8">
+
+      <h2 class="visually-hidden">
+        Productos disponibles
+      </h2>
+
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+
+        @for (prod of productos(); track prod.id) {
+
+          <div class="col">
+
+            <app-tarjeta-producto
+              [producto]="prod"
+              (seleccionado)="alSeleccionar($event)">
+            </app-tarjeta-producto>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+    <aside class="col-md-4">
+
+      <app-resumen-compra
+        [producto]="productoSeleccionado()"
+        [(cantidad)]="cantidad">
+      </app-resumen-compra>
+
+    </aside>
+
+  </div>
+
+</main>

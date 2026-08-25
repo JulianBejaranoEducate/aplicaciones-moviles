@@ -8,6 +8,6 @@
 
 body {
     margin: 0;
-    background-color: #f3f6fb;
-    font-family: 'Stika Banner', Georgia, serif;
+    background: linear-gradient(135deg, #f3f6fb 0%, #f7d6d6 100%);
+    font-family: 'Bodoni Moda', 'Didot', 'Cinzel', serif;
 }

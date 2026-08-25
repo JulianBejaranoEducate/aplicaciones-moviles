@@ -1,0 +1,73 @@
+<section class="card border-primary shadow-sm">
+
+  <header class="card-header bg-primary text-white">
+    <h2 class="h5 mb-0">
+      Resumen de Compra
+    </h2>
+  </header>
+
+  <div class="card-body">
+
+    @if (producto(); as prod) {
+
+      <p class="mb-2">
+        <strong>Producto:</strong>
+        {{ prod.nombre }}
+      </p>
+
+      <p class="mb-2">
+        <strong>Precio unitario:</strong>
+        ${{ prod.precio }}
+      </p>
+
+      <div class="my-3">
+
+        <label class="form-label fw-bold">
+          Cantidad
+        </label>
+
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Control de cantidad">
+
+          <button id="boton"
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="disminuir()"
+            [disabled]="cantidad() <= 1">
+            -
+          </button>
+
+          <span class="btn btn-light disabled fw-bold">
+            {{ cantidad() }}
+          </span>
+
+          <button id="boton1"
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="aumentar()">
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+      <hr>
+
+      <p class="fs-5 fw-bold mb-0 text-success">
+        Total: ${{ prod.precio * cantidad() }}
+      </p>
+
+    } @else {
+
+      <p class="text-muted mb-0">
+        No ha seleccionado ningún producto.
+      </p>
+
+    }
+
+  </div>
+
+</section>

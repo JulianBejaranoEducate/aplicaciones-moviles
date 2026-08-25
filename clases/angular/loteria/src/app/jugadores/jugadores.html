@@ -1,0 +1,13 @@
+<div class="jugadores">
+  <h3>Jugadores</h3>
+  <ul>
+    @for (jugador of arregloJugadores; track jugador) {
+      <li [class.ganador]="esGanador(jugador)">
+        {{ jugador.nombreCompleto }} — número jugado: {{ jugador.numeroJugado }}
+        @if (esGanador(jugador)) {
+          <span class="badge">¡Ganador!</span>
+        }
+      </li>
+    }
+  </ul>
+</div>

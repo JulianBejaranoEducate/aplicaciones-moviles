@@ -1,0 +1,47 @@
+<main class="container">
+  <h1>Lotería</h1>
+
+  <div class="acciones center">
+    <button class="buttom" (click)="playLoteria()">Jugar Lotería</button>
+    <button class="buttom" (click)="identificarGanadores()">Identificar Ganadores</button>
+  </div>
+
+  <section class="vista-balotas" [class.oculto]="vista() !== 'balotas'">
+    <div class="balotas">
+      @for (numero of numerosGanadores(); track $index) {
+        <app-balot [valor]="numero" />
+      }
+    </div>
+    <p>{{ numeroWin() }}</p>
+  </section>
+
+  <!--
+    app-jugadores queda SIEMPRE montado (nunca se crea/destruye con @if).
+    Es el dueño de los datos de los jugadores y solo los emite una vez,
+    al iniciar (ngOnInit). Si lo destruyéramos cada vez que cambiamos de
+    vista, perderíamos esa fuente de datos y habría que reconstruirla.
+    Por eso solo lo escondemos visualmente con una clase CSS.
+  -->
+  <section class="vista-jugadores" [class.oculto]="vista() !== 'jugadores'">
+    <app-jugadores
+      [ganadores]="ganadores()"
+      (jugadoresListos)="onJugadoresListos($event)"
+    />
+
+    @if (ganadores().length > 0) {
+      <div class="resultado-ganadores">
+        <h2>Ganadores de esta jugada</h2>
+        <ul>
+          @for (g of ganadores(); track g) {
+
+            <li>{{ g.nombreCompleto }} — Ganó con el N° {{ g.numeroJugado }}</li>
+          }
+        </ul>
+      </div>
+    } @else {
+      <p><em>No hubo ganadores em esta jugada.</em></p>
+    }
+  </section>
+
+  <router-outlet />
+</main>

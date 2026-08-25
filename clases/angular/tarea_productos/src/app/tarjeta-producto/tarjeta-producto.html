@@ -1,0 +1,30 @@
+<article class="card h-100 shadow-sm">
+  <div class="card-body d-flex flex-column justify-content-between">
+
+    <div>
+      <h2 class="h5 card-title">
+        {{ producto().nombre }}
+      </h2>
+
+      <p class="card-text text-muted">
+        {{ producto().descripcion }}
+      </p>
+    </div>
+
+    <div class="mt-3 d-flex justify-content-between align-items-center">
+
+      <span class="fw-bold fs-5">
+        ${{ producto().precio }}
+      </span>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="seleccionado.emit(producto())">
+        Seleccionar
+      </button>
+
+    </div>
+
+  </div>
+</article>

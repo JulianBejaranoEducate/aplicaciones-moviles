@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "app1": {
+    "loteria": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app1:build:production"
+              "buildTarget": "loteria:build:production"
             },
             "development": {
-              "buildTarget": "app1:build:development"
+              "buildTarget": "loteria:build:development"
             }
           },
           "defaultConfiguration": "development"
