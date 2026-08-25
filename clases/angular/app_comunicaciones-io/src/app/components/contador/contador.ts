@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Incrementar } from '../incrementar/incrementar';
-import { Decrementar } from '../decrementar/decrementar';
+import { Incrementar } from './incrementar/incrementar';
+import { Decrementar } from './decrementar/decrementar';
 
 @Component({
   selector: 'app-contador',
@@ -9,7 +9,7 @@ import { Decrementar } from '../decrementar/decrementar';
   styleUrl: './contador.css',
 })
 export class Contador {
-  public contador: number = 0;
+  public contador: number = 10;
 
   public actualizarContador(nuevoValor: number): void {
     this.contador = nuevoValor;

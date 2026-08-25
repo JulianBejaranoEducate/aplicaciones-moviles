@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './incrementar.css',
 })
 export class Incrementar {
+  
   @Input()
   public contador: number = 0;
 
