@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-reiniciar',
@@ -6,4 +6,18 @@ import { Component } from '@angular/core';
   templateUrl: './reiniciar.html',
   styleUrl: './reiniciar.css',
 })
-export class Reiniciar {}
+export class Reiniciar {
+
+  @Input()
+  public contador: number = 0;
+
+  @Input()
+  public valorInicial: number = 10;
+
+  @Output()
+  public cambioContador: EventEmitter<number> = new EventEmitter<number>();
+
+  public reiniciar(): void {
+    this.cambioContador.emit(this.valorInicial);
+  }
+}

@@ -1,1 +1,9 @@
-<p>reiniciar works!</p>
+<article class="tarjeta tarjeta-reiniciar">
+    <h2><b>Componente hijo:</b>Reiniciar</h2>
+
+    <p>Valor recibido del padre: <strong>{{ contador }}</strong></p>
+
+    <button type="button" (click)="reiniciar()" [disabled]="contador === valorInicial">
+        Reiniciar a {{ valorInicial }}
+    </button>
+</article>

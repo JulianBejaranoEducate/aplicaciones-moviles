@@ -13,5 +13,11 @@
             [contador]="contador"
             (cambioContador)="actualizarContador($event)">
         </app-decrementar>
+
+        <app-reiniciar
+            [contador]="contador"
+            [valorInicial]="valorInicial"
+            (cambioContador)="actualizarContador($event)">
+        </app-reiniciar>
     </section>
 </main> 

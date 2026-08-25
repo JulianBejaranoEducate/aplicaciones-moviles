@@ -3,7 +3,7 @@
 
     <p>Valor recibido del padre: <strong>{{ contador }}</strong></p>
 
-    <button type="button" (click)="decrementar()">
+    <button type="button" (click)="decrementar()" [disabled]="contador <= 0">
         - Decrementar
     </button>
 </article>
