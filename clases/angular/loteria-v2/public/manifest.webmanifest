@@ -1,6 +1,8 @@
 {
-  "name": "loteria",
-  "short_name": "loteria",
+  "name": "Lotería de Uniempresarial",
+  "short_name": "Lotería",
+  "theme_color": "#7a1731",
+  "background": "#FFFFFF",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

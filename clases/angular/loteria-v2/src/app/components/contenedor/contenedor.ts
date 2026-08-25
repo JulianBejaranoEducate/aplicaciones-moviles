@@ -1,7 +1,7 @@
 import { Component, signal, computed } from '@angular/core';
 import { Balota } from "../balota/balota";
 import { Jugadores } from '../jugadores/jugadores';
-import { Loteria } from '../models/loteria';
+import { Loteria } from '../../models/loteria';
 
 @Component({
   selector: 'app-contenedor',
@@ -43,40 +43,4 @@ export class Contenedor {
   onCantidadGanadores(cantidad: number): void {
     this.totalGanadores.set(cantidad);
   }
-
-  // @ViewChild(Jugadores) jugadoresComponente!: Jugadores;
-
-  // number1: number;
-  // number2: number;
-  // number3: number;
-  // number4: number;
-  // number5: number;
-  // numberWin: string;
-  // ganadores: Jugador[] = [];
-  // seBuscoGanadores: boolean = false;
-
-  // constructor(){
-  //   this.number1=0;
-  //   this.number2=0;
-  //   this.number3=0;
-  //   this.number4=0;
-  //   this.number5=0;
-  //   this.numberWin="";
-  // }
-
-  // getNumberPlaying(): number{
-  //   let myNumber : number;
-  //   myNumber = (Math.trunc(Math.random() * 9)- 1) + (1);
-  //   if (myNumber < 0 ) myNumber=0;
-  //   return myNumber;
-  // }
-
-  // playLotery(): void{
-  //   this.number1 = this.getNumberPlaying();
-  //   this.number2 = this.getNumberPlaying();
-  //   this.number3 = this.getNumberPlaying();
-  //   this.number4 = this.getNumberPlaying();
-  //   this.number5 = this.getNumberPlaying();
-  //   this.numberWin = `El número ganador es: ${this.number1} ${this.number2} ${this.number3} ${this.number4} ${this.number5}`;
-  // }
 }

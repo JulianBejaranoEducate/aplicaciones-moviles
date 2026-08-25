@@ -1,5 +1,6 @@
 import { Component, signal, computed, effect, input, output } from '@angular/core';
-import { Jugador } from '../models/jugador';
+import { Jugador } from '../../models/jugador';
+
 
 @Component({
   selector: 'app-jugadores',
@@ -9,13 +10,13 @@ import { Jugador } from '../models/jugador';
 })
 export class Jugadores {
 
-  // input()
+  // input
   numerosGanadores = input<number[]>([]);
 
-  // output()
+  // output
   cantidadGanadores = output<number>();
 
-  // signal()
+  // signal
   jugadores = signal<Jugador[]>([
     new Jugador('Juan', 'Pérez', 1),
     new Jugador('María', 'García', 2),
