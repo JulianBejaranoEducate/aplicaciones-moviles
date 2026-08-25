@@ -1,1 +1,67 @@
-<p>resumen works!</p>
+<section class="card shadow-sm">
+
+  <header class="card-header">
+    <h3 class="h6 mb-0">{{ producto().nombre }}</h3>
+    <small class="text-body-secondary">{{ producto().categoria }}</small>
+  </header>
+
+  <div class="card-body">
+
+    <dl class="row mb-4">
+      <dt class="col-6 fw-normal text-body-secondary">Precio unitario</dt>
+      <dd class="col-6 text-end mb-2">$ {{ producto().precio | number: '1.0-0' }}</dd>
+
+      <dt class="col-6 fw-normal text-body-secondary">Cantidad</dt>
+      <dd class="col-6 text-end mb-0">{{ cantidad() }}</dd>
+    </dl>
+
+    <label class="form-label small fw-semibold" for="cantidad">
+      Ajustar cantidad
+    </label>
+
+    <div class="input-group">
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        aria-label="Disminuir cantidad"
+        [disabled]="cantidad() <= 1"
+        (click)="disminuir()">
+        &minus;
+      </button>
+
+      <input
+        id="cantidad"
+        name="cantidad"
+        type="number"
+        class="form-control text-center"
+        min="1"
+        max="20"
+        [(ngModel)]="cantidad"
+        (change)="validarCantidad()" />
+
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        aria-label="Aumentar cantidad"
+        [disabled]="cantidad() >= 20"
+        (click)="aumentar()">
+        +
+      </button>
+    </div>
+
+  </div>
+
+  <footer class="card-footer">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="fw-semibold">Total</span>
+      <output class="fs-5 fw-bold text-primary" for="cantidad">
+        $ {{ total() | number: '1.0-0' }}
+      </output>
+    </div>
+
+    <button type="button" class="btn btn-outline-danger btn-sm w-100" (click)="limpiar.emit()">
+      Quitar selección
+    </button>
+  </footer>
+
+</section>
