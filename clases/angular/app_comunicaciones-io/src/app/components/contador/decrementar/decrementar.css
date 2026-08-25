@@ -1,0 +1,28 @@
+.tarjeta {
+    padding: 24px;
+    border-radius: 12px;
+    background-color: #f8fafc;
+}
+
+.tarjeta-incrementar {
+    border: 2px solid #123a78;
+}
+
+.tarjeta-decrementar {
+    border: 2px solid #b70e2e;
+}
+
+button {
+    padding: 10px 22px;
+    border: 0;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #123a78;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b70e2e;
+}

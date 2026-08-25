@@ -1,0 +1,43 @@
+<main class="container py-5">
+
+  <header class="text-center mb-5">
+    <h1 class="h3 fw-bold">Selector de productos</h1>
+    <p class="text-body-secondary mb-0">
+      Selecciona un producto del catálogo para ver el resumen de compra.
+    </p>
+  </header>
+
+  <div class="row g-4">
+
+    <section class="col-lg-8" aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo" class="h5 mb-3">Catálogo</h2>
+
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        @for (producto of productos(); track producto.id) {
+          <div class="col">
+            <app-tarjeta
+              [producto]="producto"
+              [activo]="producto.id === productoSeleccionado()?.id"
+              (seleccionado)="seleccionarProducto($event)" />
+          </div>
+        }
+      </div>
+    </section>
+
+    <aside class="col-lg-4" aria-labelledby="titulo-resumen">
+      <h2 id="titulo-resumen" class="h5 mb-3">Resumen de compra</h2>
+
+      @if (productoSeleccionado(); as producto) {
+        <app-resumen
+          [producto]="producto"
+          [(cantidad)]="cantidad"
+          (limpiar)="limpiarSeleccion()" />
+      } @else {
+        <div class="alert alert-secondary mb-0" role="status">
+          Aún no has seleccionado ningún producto.
+        </div>
+      }
+    </aside>
+
+  </div>
+</main>

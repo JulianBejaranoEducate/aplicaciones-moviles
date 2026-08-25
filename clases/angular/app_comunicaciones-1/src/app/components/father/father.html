@@ -1,0 +1,47 @@
+<main class="pagina">
+    
+  <header class="titulo">
+    <h1>Comunicación entre Componente Padre y Componente Hijo</h1>
+  </header>
+
+  <section class="comunicacion">
+    <article class="componente componente-padre">
+      <header class="encabezado encabezado-padre">
+        <h2>Componente Padre</h2>
+      </header>
+      <section class="contenido">
+        <p>Mensaje que el padre envía al hijo:</p>
+        <output class="mensaje">
+          {{ MSN_INIT }}
+        </output>
+        <section class="respuesta">
+          <h3>Evento recibido del hijo</h3>
+          <p>
+            {{ message_received || 'Todavía no se ha recibido ningún evento' }}
+          </p>
+        </section>
+      </section>
+    </article>
+
+    <section class="flujo" aria-label="Flujo de comunicación">
+      <article class="flujo-item">
+        <h3>1. @Input()</h3>
+        <p>El padre envía datos al hijo</p>
+        <span class="flecha flecha-derecha">→</span>
+      </article>
+      <article class="flujo-item">
+        <h3>2. @Output() y EventEmitter</h3>
+        <p>El hijo emite eventos al padre</p>
+        <span class="flecha flecha-izquierda">←</span>
+      </article>
+    </section>
+
+    <app-son
+      [message]="MSN_INIT"
+      (notification)="receivedEvent($event)">
+    </app-son>
+
+    <p>Mensaje recibido: {{ message_received }}</p>
+  </section>
+  
+</main>
