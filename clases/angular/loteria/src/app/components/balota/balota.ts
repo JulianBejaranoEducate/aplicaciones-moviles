@@ -1,16 +1,9 @@
-import { Component, input, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-balota',
   imports: [],
-  templateUrl: './balota.html',
+  selector: 'app-balota',
   styleUrl: './balota.css',
+  templateUrl: './balota.html',
 })
-export class Balota {
-
-  valor = input<number>(0);
-
-  // @Input()
-  // valor : number = 0;
-
-}
+export class Balota {}
