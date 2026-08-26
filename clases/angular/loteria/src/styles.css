@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --baloto-amarillo: #FFE000;
+    --baloto-amarillo-oscuro: #C9AF00;
+    --baloto-azul: #0B2A6B;
+    --baloto-azul-claro: #12379A;
+    --baloto-azul-oscuro: #05194A;
+    --baloto-rojo: #E4002B;
+    --baloto-fondo: #F4F6FB;
+    --baloto-borde: #DDE3F2;
+    --baloto-texto: #1B2A4A;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: var(--baloto-fondo);
+    color: var(--baloto-texto);
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body::before {
+    content: '';
+    display: block;
+    height: 44px;
+    background-color: var(--baloto-amarillo);
+}
+

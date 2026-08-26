@@ -1,0 +1,119 @@
+.h1 {
+    margin: 0;
+    padding: 1.75rem 1rem;
+    background-color: var(--baloto-azul);
+    color: #FFFFFF;
+    border-bottom: 6px solid var(--baloto-amarillo);
+    font-size: clamp(1.4rem, 4vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.center {
+    text-align: center;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 2.5rem auto 0;
+    padding: 2.25rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEF2FB 100%);
+    border: 1px solid var(--baloto-borde);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(11, 42, 107, 0.12);
+}
+
+app-balota:last-of-type {
+    --balota-brillo: #FF9AA8;
+    --balota-base: var(--baloto-rojo);
+    --balota-sombra: #8E0019;
+    --balota-texto: #FFFFFF;
+    --balota-linea: #FFFFFF;
+}
+
+hr {
+    width: min(900px, 92%);
+    margin: 2.5rem auto 0;
+    border: 0;
+    border-top: 2px dashed var(--baloto-borde);
+}
+
+.button {
+    width: auto;
+    min-width: 230px;
+    height: auto;
+    margin-top: 2.5rem;
+    padding: 0.9rem 2.5rem;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--baloto-amarillo);
+    color: var(--baloto-azul);
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 0 var(--baloto-amarillo-oscuro);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #FFE94D;
+}
+
+.button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 var(--baloto-amarillo-oscuro);
+}
+
+.button-secundario {
+    margin-left: 1rem;
+    background-color: var(--baloto-azul);
+    color: #FFFFFF;
+    box-shadow: 0 6px 0 var(--baloto-azul-oscuro);
+}
+
+.button-secundario:hover {
+    background-color: var(--baloto-azul-claro);
+}
+
+.button:disabled {
+    background-color: #CFD6E6;
+    color: #8B93A7;
+    box-shadow: 0 6px 0 #B3BACD;
+    cursor: not-allowed;
+    transform: none;
+}
+
+h2 {
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+    color: var(--baloto-azul);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.detalle {
+    margin: 1rem auto 3rem;
+    color: #4A5878;
+    font-size: 1.05rem;
+}
+
+@media (max-width: 600px) {
+    .button {
+        min-width: 80%;
+    }
+
+    .button-secundario {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
