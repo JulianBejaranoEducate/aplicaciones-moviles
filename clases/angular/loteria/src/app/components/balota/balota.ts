@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './balota.css',
   templateUrl: './balota.html',
 })
-export class Balota {}
+export class Balota {
+
+  @Input()
+  valor: number = 0;
+}
