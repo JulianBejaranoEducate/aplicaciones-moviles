@@ -27,7 +27,7 @@ export class App {
 
   getNumberPlaying(): number {
     let myNumber: number;
-    myNumber = Math.trunc(Math.random() * 9) - 1 + 1;
+    myNumber = Math.trunc(Math.random() * 9);
     if (myNumber < 0) myNumber = 0;
     return myNumber;
   }
