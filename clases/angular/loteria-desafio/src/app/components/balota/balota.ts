@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input} from '@angular/core';
 
 @Component({
   selector: 'app-balota',
@@ -9,8 +9,5 @@ import { Component, input, Input } from '@angular/core';
 export class Balota {
 
   valor = input<number>(0);
-
-  // @Input()
-  // valor : number = 0;
 
 }
