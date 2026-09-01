@@ -1,0 +1,206 @@
+/* ===== Cabecera ===== */
+.cabecera {
+    padding: 1.5rem calc(1rem + var(--safe-left)) 1.35rem calc(1rem + var(--safe-right));
+    background-color: var(--baloto-azul);
+    border-bottom: 6px solid var(--baloto-amarillo);
+    text-align: center;
+}
+
+.titulo {
+    color: #FFFFFF;
+    font-size: clamp(1.25rem, 5.5vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.subtitulo {
+    margin-top: 0.4rem;
+    color: var(--baloto-amarillo);
+    font-size: clamp(0.75rem, 3.2vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* ===== Contenido ===== */
+.pagina {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 1.5rem calc(1rem + var(--safe-left)) 0 calc(1rem + var(--safe-right));
+}
+
+/* ===== Tablero de balotas ===== */
+.tablero {
+    padding: 1.5rem 0.75rem 1.75rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEF2FB 100%);
+    border: 1px solid var(--baloto-borde);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(11, 42, 107, 0.12);
+    text-align: center;
+}
+
+.tablero__etiqueta {
+    margin-bottom: 1.25rem;
+    color: var(--baloto-texto-suave);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.balotas {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.35rem, 1.8vw, 1rem);
+}
+
+/* La última balota es roja, como en el baloto */
+app-balota:last-of-type {
+    --balota-brillo: #FF9AA8;
+    --balota-base: var(--baloto-rojo);
+    --balota-sombra: var(--baloto-rojo-oscuro);
+    --balota-texto: #FFFFFF;
+    --balota-linea: #FFFFFF;
+}
+
+/* ===== Botones ===== */
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.button {
+    flex: 0 1 auto;
+    min-width: 210px;
+    min-height: 48px;
+    padding: 0.9rem 2rem;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--baloto-amarillo);
+    color: var(--baloto-azul);
+    font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 0 var(--baloto-amarillo-oscuro);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--baloto-amarillo-claro);
+}
+
+.button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 var(--baloto-amarillo-oscuro);
+}
+
+.button-secundario {
+    background-color: var(--baloto-azul);
+    color: #FFFFFF;
+    box-shadow: 0 6px 0 var(--baloto-azul-oscuro);
+}
+
+.button-secundario:hover {
+    background-color: var(--baloto-azul-claro);
+}
+
+.button-secundario:active {
+    box-shadow: 0 2px 0 var(--baloto-azul-oscuro);
+}
+
+/* ===== Separador ===== */
+.separador {
+    margin: 2rem 0 0;
+    border: 0;
+    border-top: 2px dashed var(--baloto-borde);
+    opacity: 1;
+}
+
+/* ===== Resultado ===== */
+.resultado {
+    margin-top: 1.75rem;
+    text-align: center;
+}
+
+.resultado__numero {
+    color: var(--baloto-azul);
+    font-size: clamp(1rem, 4.2vw, 1.4rem);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-wrap: balance;
+}
+
+.resultado__detalle {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    background-color: var(--baloto-verde-claro);
+    color: var(--baloto-verde);
+    font-size: clamp(0.85rem, 3.4vw, 1rem);
+    font-weight: 700;
+}
+
+/* ===== Panel de jugadores ===== */
+.panel {
+    margin-top: 2rem;
+    padding: 1.5rem 1.1rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--baloto-borde);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(11, 42, 107, 0.1);
+}
+
+/* ===== Celulares ===== */
+@media (max-width: 600px) {
+    .pagina {
+        padding-top: 1.15rem;
+    }
+
+    .tablero {
+        padding: 1.15rem 0.5rem 1.35rem;
+        border-radius: 16px;
+    }
+
+    .acciones {
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    .button {
+        flex: 1 1 100%;
+        min-width: 0;
+        padding: 0.85rem 1rem;
+    }
+
+    .panel {
+        padding: 1.15rem 0.85rem;
+        border-radius: 16px;
+    }
+}
+
+/* ===== Celular en horizontal (pantallas bajas) ===== */
+@media (max-height: 480px) and (orientation: landscape) {
+    .cabecera {
+        padding-top: 0.9rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .tablero {
+        padding: 1rem 0.5rem;
+    }
+
+    .button {
+        flex: 0 1 auto;
+        min-width: 180px;
+    }
+}

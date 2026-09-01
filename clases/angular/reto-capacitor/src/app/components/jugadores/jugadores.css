@@ -1,0 +1,110 @@
+.jugadores {
+    text-align: left;
+}
+
+.jugadores__titulo,
+.jugadores__subtitulo {
+    color: var(--baloto-azul);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.jugadores__titulo {
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+}
+
+.jugadores__subtitulo {
+    margin-top: 1.75rem;
+    font-size: clamp(0.85rem, 3.4vw, 1rem);
+    color: var(--baloto-verde);
+}
+
+.jugadores__titulo::after,
+.jugadores__subtitulo::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 0.6rem auto 0;
+    border-radius: 2px;
+    background-color: var(--baloto-amarillo);
+}
+
+.jugadores__subtitulo::after {
+    background-color: var(--baloto-verde);
+}
+
+.lista {
+    list-style: none;
+    margin-top: 1.15rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.jugador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: 48px;
+    padding: 0.7rem 0.9rem;
+    background-color: var(--baloto-fondo);
+    border: 1px solid var(--baloto-borde);
+    border-left: 5px solid var(--baloto-azul);
+    border-radius: 12px;
+}
+
+.jugador__nombre {
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--baloto-texto);
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.jugador__numero {
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: var(--baloto-azul);
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.jugador.ganador {
+    background-color: var(--baloto-verde-claro);
+    border-color: #BCE7D1;
+    border-left-color: var(--baloto-verde);
+    box-shadow: 0 6px 14px rgba(14, 143, 82, 0.15);
+}
+
+.jugador.ganador .jugador__nombre {
+    color: var(--baloto-verde);
+    font-weight: 800;
+}
+
+.jugador.ganador .jugador__numero {
+    background-color: var(--baloto-verde);
+}
+
+.sin-ganadores {
+    margin-top: 1.25rem;
+    padding: 0.85rem 1rem;
+    background-color: #FFF3F4;
+    border: 1px dashed #F3B6BF;
+    border-radius: 12px;
+    color: var(--baloto-rojo);
+    font-size: clamp(0.85rem, 3.4vw, 1rem);
+    font-weight: 700;
+    text-align: center;
+}

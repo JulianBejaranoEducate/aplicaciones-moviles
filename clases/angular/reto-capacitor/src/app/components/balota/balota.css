@@ -1,0 +1,38 @@
+:host {
+    /* Tamaño fluido: 5 balotas caben en una sola fila incluso en celulares */
+    --balota-tamano: clamp(2.6rem, 14.5vw, 5.5rem);
+    display: inline-block;
+}
+
+.formaBalota {
+    position: relative;
+    width: var(--balota-tamano);
+    height: var(--balota-tamano);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: calc(var(--balota-tamano) * 0.45);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--balota-texto, var(--baloto-azul));
+    background: radial-gradient(
+        circle at 32% 26%,
+        var(--balota-brillo, #FFF3A6) 0%,
+        var(--balota-base, #F7C400) 48%,
+        var(--balota-sombra, #B87C00) 100%
+    );
+    box-shadow:
+        0 8px 16px rgba(11, 42, 107, 0.25),
+        inset -4px -6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.formaBalota::after {
+    content: '';
+    position: absolute;
+    bottom: calc(var(--balota-tamano) * 0.18);
+    width: calc(var(--balota-tamano) * 0.29);
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--balota-linea, var(--baloto-azul));
+}
