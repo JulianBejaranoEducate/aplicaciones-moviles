@@ -1,0 +1,22 @@
+.formaBalota {
+    width: clamp(3rem, 4.2vw, 5rem);
+    height: clamp(3rem, 4.2vw, 5rem);
+    font-size: clamp(1.6rem, 2vw, 3rem);
+    color: white;
+    background: radial-gradient(
+        circle at 0 0,
+        hsl(324, 98%, 82%) 25%,
+        hsl(303, 79%, 34%) 70%,
+        hsl(309, 97%, 26%));
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.75);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: inset -0.25rem -0.3rem 0 rgba(0, 0, 0, 0.18);
+}
+
+:host {
+  display: inline-flex;
+}
