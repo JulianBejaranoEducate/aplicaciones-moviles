@@ -1,0 +1,39 @@
+<header class="barra">
+  <h1 class="barra__titulo">Lector de códigos</h1>
+  <p class="barra__descripcion">QR y códigos de barras con la cámara</p>
+</header>
+
+<main class="contenido">
+  <router-outlet />
+</main>
+
+<nav class="pestanas">
+  <a
+    class="pestanas__opcion"
+    routerLink="/qr"
+    routerLinkActive="pestanas__opcion--activa"
+  >
+    <span class="pestanas__icono" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+        <path d="M14 14h3v3h-3zM19 19h2v2h-2zM14 19h2v2h-2zM19 14h2v3h-2z" fill="currentColor" stroke="none" />
+      </svg>
+    </span>
+    <span>QR</span>
+  </a>
+
+  <a
+    class="pestanas__opcion"
+    routerLink="/barras"
+    routerLinkActive="pestanas__opcion--activa"
+  >
+    <span class="pestanas__icono" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 5v14M8 5v14M12 5v10M16 5v14M20 5v14" />
+      </svg>
+    </span>
+    <span>Barras</span>
+  </a>
+</nav>

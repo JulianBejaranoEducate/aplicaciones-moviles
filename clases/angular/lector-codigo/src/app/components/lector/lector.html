@@ -1,0 +1,37 @@
+<button
+  type="button"
+  class="boton boton--principal"
+  [disabled]="iniciando()"
+  (click)="iniciar()"
+>
+  {{ iniciando() ? 'Abriendo cámara…' : etiquetaBoton() }}
+</button>
+
+@if (error()) {
+  <p class="aviso aviso--error">{{ error() }}</p>
+}
+
+<div class="capa-escaner" [class.capa-escaner--activa]="escaneando()">
+  <video
+    #video
+    class="capa-escaner__video"
+    [class.capa-escaner__video--oculto]="esNativo"
+    playsinline
+    muted
+  ></video>
+
+  <div class="capa-escaner__marco">
+    <span class="capa-escaner__laser"></span>
+  </div>
+
+  <p class="capa-escaner__ayuda">{{ ayuda() }}</p>
+
+  <div class="capa-escaner__acciones">
+    @if (hayLinterna()) {
+      <button type="button" class="boton boton--flotante" (click)="alternarLinterna()">
+        {{ linterna() ? 'Apagar luz' : 'Encender luz' }}
+      </button>
+    }
+    <button type="button" class="boton boton--flotante" (click)="detener()">Cancelar</button>
+  </div>
+</div>

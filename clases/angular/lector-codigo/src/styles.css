@@ -1,0 +1,285 @@
+/* Estilos globales: tokens de color y piezas de interfaz compartidas. */
+
+:root {
+    --fondo: #080D19;
+    --superficie: #121A2B;
+    --superficie-alta: #1B2540;
+    --borde: #26314D;
+    --texto: #EAF0FB;
+    --texto-suave: #93A2C0;
+    --peligro: #FB7185;
+
+    /* Cada pantalla define su propio acento sobre esta variable. */
+    --acento: #2DD4BF;
+    --acento-suave: rgba(45, 212, 191, 0.14);
+
+    /* Áreas seguras del dispositivo (notch y barra de gestos en Android). */
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+
+    color-scheme: dark;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: 'Inter', 'Segoe UI', Roboto, system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: contain;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+/* Mientras el plugin nativo escanea, la cámara se dibuja detrás del WebView:
+   escondemos la app y dejamos visible solo la capa del escáner. */
+body.escaner-activo,
+html:has(body.escaner-activo) {
+    background: transparent !important;
+}
+
+body.escaner-activo app-root {
+    visibility: hidden;
+}
+
+body.escaner-activo .capa-escaner--activa {
+    visibility: visible;
+}
+
+/* ===== Botones ===== */
+.boton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.85rem 1.4rem;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    background-color: var(--superficie-alta);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform 0.12s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.boton:active {
+    transform: scale(0.98);
+}
+
+.boton:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.boton--principal {
+    width: 100%;
+    border-color: transparent;
+    background-color: var(--acento);
+    color: #06121A;
+}
+
+.boton--flotante {
+    flex: 1 1 auto;
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(12, 18, 32, 0.75);
+    color: #FFFFFF;
+    backdrop-filter: blur(6px);
+}
+
+.boton--secundario {
+    flex: 1 1 auto;
+}
+
+.boton--peligro {
+    color: var(--peligro);
+}
+
+/* ===== Tarjetas y avisos ===== */
+.tarjeta {
+    padding: 1.15rem;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+}
+
+.aviso {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.aviso--error {
+    background-color: rgba(251, 113, 133, 0.12);
+    border: 1px solid rgba(251, 113, 133, 0.35);
+    color: var(--peligro);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background-color: var(--acento-suave);
+    color: var(--acento);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ===== Estructura de las pantallas ===== */
+.pantalla {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.pantalla__intro h2 {
+    margin-top: 0.6rem;
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.pantalla__intro p {
+    margin-top: 0.4rem;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.resultado__cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+}
+
+.resultado__tipo {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.resultado__valor {
+    padding: 0.9rem;
+    background-color: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.resultado__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 0.9rem;
+}
+
+.vacio {
+    padding: 1.75rem 1.25rem;
+    border: 1px dashed var(--borde);
+    border-radius: 18px;
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.historial__cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.historial__cabecera h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.historial__limpiar {
+    min-height: 40px;
+    padding: 0.5rem 0.85rem;
+    border: 0;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--peligro);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.historial__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.historial__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.8rem 0.9rem;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--acento);
+    border-radius: 12px;
+}
+
+.historial__valor {
+    font-size: 0.92rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.historial__meta {
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+    font-weight: 600;
+}

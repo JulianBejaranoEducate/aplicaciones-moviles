@@ -1,0 +1,5 @@
+:host {
+    display: block;
+    --acento: #2DD4BF;
+    --acento-suave: rgba(45, 212, 191, 0.14);
+}

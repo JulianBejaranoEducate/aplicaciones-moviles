@@ -1,0 +1,17 @@
+:host {
+    display: block;
+    --acento: #FBBF24;
+    --acento-suave: rgba(251, 191, 36, 0.14);
+}
+
+.resultado__valor--codigo,
+.historial__valor--codigo {
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.historial__valor--codigo {
+    font-size: 0.95rem;
+}

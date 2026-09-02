@@ -1,0 +1,128 @@
+:host {
+    display: block;
+}
+
+/* La capa vive siempre en el DOM (el <video> necesita existir antes de iniciar)
+   pero solo se muestra mientras la cámara está encendida. */
+.capa-escaner {
+    display: none;
+}
+
+.capa-escaner--activa {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    padding: calc(1.25rem + var(--safe-top)) 1.25rem calc(1.5rem + var(--safe-bottom));
+    background-color: #000000;
+}
+
+/* En el celular la cámara la dibuja el plugin nativo detrás del WebView. */
+.capa-escaner--activa:has(.capa-escaner__video--oculto) {
+    background-color: transparent;
+}
+
+.capa-escaner__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.capa-escaner__video--oculto {
+    display: none;
+}
+
+.capa-escaner__marco {
+    position: relative;
+    width: min(70vw, 70vh, 300px);
+    aspect-ratio: 1;
+    border-radius: 24px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.45);
+    outline: 2px solid rgba(255, 255, 255, 0.35);
+    outline-offset: -2px;
+    overflow: hidden;
+}
+
+.capa-escaner__marco::before,
+.capa-escaner__marco::after {
+    content: '';
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border: 4px solid var(--acento);
+}
+
+.capa-escaner__marco::before {
+    top: 0;
+    left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-top-left-radius: 22px;
+}
+
+.capa-escaner__marco::after {
+    right: 0;
+    bottom: 0;
+    border-top: 0;
+    border-left: 0;
+    border-bottom-right-radius: 22px;
+}
+
+.capa-escaner__laser {
+    position: absolute;
+    left: 8%;
+    width: 84%;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, transparent, var(--acento), transparent);
+    box-shadow: 0 0 12px var(--acento);
+    animation: barrido 2.4s ease-in-out infinite;
+}
+
+@keyframes barrido {
+    0%,
+    100% {
+        top: 10%;
+    }
+
+    50% {
+        top: 88%;
+    }
+}
+
+.capa-escaner__ayuda,
+.capa-escaner__acciones {
+    position: relative;
+    z-index: 1;
+}
+
+.capa-escaner__ayuda {
+    max-width: 22rem;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.capa-escaner__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 26rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .capa-escaner__laser {
+        animation: none;
+        top: 50%;
+    }
+}

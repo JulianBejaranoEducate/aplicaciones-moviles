@@ -1,0 +1,94 @@
+:host {
+    display: block;
+    min-height: 100dvh;
+}
+
+/* ===== Barra superior ===== */
+.barra {
+    padding: calc(1rem + var(--safe-top)) calc(1.15rem + var(--safe-right)) 1rem
+        calc(1.15rem + var(--safe-left));
+    background-color: var(--superficie);
+    border-bottom: 1px solid var(--borde);
+}
+
+.barra__titulo {
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.barra__descripcion {
+    margin-top: 0.2rem;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+/* ===== Contenido ===== */
+.contenido {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    /* Espacio inferior para que la barra de pestañas no tape el contenido. */
+    padding: 1.25rem calc(1.15rem + var(--safe-right)) calc(6.5rem + var(--safe-bottom))
+        calc(1.15rem + var(--safe-left));
+}
+
+/* ===== Pestañas inferiores ===== */
+.pestanas {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    padding: 0.5rem calc(0.75rem + var(--safe-right)) calc(0.5rem + var(--safe-bottom))
+        calc(0.75rem + var(--safe-left));
+    background-color: rgba(18, 26, 43, 0.96);
+    border-top: 1px solid var(--borde);
+    backdrop-filter: blur(10px);
+}
+
+.pestanas__opcion {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 56px;
+    padding: 0.4rem;
+    border-radius: 14px;
+    color: var(--texto-suave);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.pestanas__opcion--activa {
+    background-color: var(--acento-suave);
+    color: var(--acento);
+}
+
+.pestanas__icono svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+/* La primera pestaña usa el acento del lector QR y la segunda el de barras. */
+.pestanas__opcion:first-child.pestanas__opcion--activa {
+    --acento: #2DD4BF;
+    --acento-suave: rgba(45, 212, 191, 0.14);
+}
+
+.pestanas__opcion:last-child.pestanas__opcion--activa {
+    --acento: #FBBF24;
+    --acento-suave: rgba(251, 191, 36, 0.14);
+}
+
+@media (min-width: 700px) {
+    .barra {
+        text-align: center;
+    }
+}

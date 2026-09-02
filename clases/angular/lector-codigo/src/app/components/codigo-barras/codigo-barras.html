@@ -1,0 +1,54 @@
+<section class="pantalla">
+  <header class="pantalla__intro">
+    <span class="chip">Código de barras</span>
+    <h2>Lector de códigos de barras</h2>
+    <p>Reconoce EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, Codabar e ITF.</p>
+  </header>
+
+  <app-lector
+    [formatos]="formatos"
+    ayuda="Acerca el código de barras y mantenlo horizontal dentro del marco"
+    etiquetaBoton="Escanear código de barras"
+    (leido)="alLeer($event)"
+  />
+
+  @if (ultima(); as lectura) {
+    <article class="tarjeta">
+      <div class="resultado__cabecera">
+        <span class="chip">{{ nombre(lectura.formato) }}</span>
+        <span class="resultado__tipo">{{ lectura.valor.length }} dígitos</span>
+      </div>
+
+      <p class="resultado__valor resultado__valor--codigo">{{ lectura.valor }}</p>
+
+      <div class="resultado__acciones">
+        @if (esProducto()) {
+          <button type="button" class="boton boton--secundario" (click)="buscarProducto()">Buscar producto</button>
+        }
+        <button type="button" class="boton boton--secundario" (click)="copiar()">
+          {{ copiado() ? 'Copiado' : 'Copiar' }}
+        </button>
+      </div>
+    </article>
+  } @else {
+    <p class="vacio">Todavía no has escaneado ningún código de barras.</p>
+  }
+
+  @if (historial().length > 0) {
+    <section>
+      <div class="historial__cabecera">
+        <h3>Historial</h3>
+        <button type="button" class="historial__limpiar" (click)="limpiar()">Borrar</button>
+      </div>
+
+      <ul class="historial__lista">
+        @for (lectura of historial(); track lectura.fecha) {
+          <li class="historial__item">
+            <span class="historial__valor historial__valor--codigo">{{ lectura.valor }}</span>
+            <span class="historial__meta">{{ nombre(lectura.formato) }} · {{ fecha(lectura.fecha) }}</span>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+</section>
