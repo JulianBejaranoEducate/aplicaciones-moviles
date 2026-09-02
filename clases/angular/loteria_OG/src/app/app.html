@@ -1,0 +1,16 @@
+<h1 class="h1 center">Lotería de Uniempresarial</h1>
+
+<div class="center container">
+    <app-balota [valor]="number1"> </app-balota>
+    <app-balota [valor]="number2"> </app-balota>
+    <app-balota [valor]="number3"> </app-balota>
+    <app-balota [valor]="number4"> </app-balota>
+    <app-balota [valor]="number5"> </app-balota>
+</div>
+
+<div class="center">
+    <hr />
+    <button (click)="playLotery()" class="button">JUGAR</button>
+
+    <h2>{{ numberWin }}</h2>
+</div>
