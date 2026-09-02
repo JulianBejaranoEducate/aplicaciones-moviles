@@ -1,0 +1,25 @@
+<div class="escaner-page">
+  <header class="escaner-header">
+    <span class="header-title header-title--left">LECTOR UNIMPREsarial</span>
+    <span class="header-title header-title--right">POR Malory Farfán</span>
+  </header>
+
+  <div class="escaner-box">
+    <div class="escaner-toolbar">
+      <span class="modo-label">Modo: {{ modo() === 'qr' ? 'Código QR' : 'Código de Barras' }}</span>
+      <button type="button" class="btn-volver" (click)="alVolver.emit()">← Volver</button>
+    </div>
+
+    <div class="camara-wrap">
+      <div class="camara" aria-label="Escáner">
+        <zxing-scanner [formats]="formatos()" (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+      </div>
+    </div>
+
+    @if (resultado()) {
+      <div class="resultado">
+        <strong>Leído:</strong> {{ resultado() }}
+      </div>
+    }
+  </div>
+</div>

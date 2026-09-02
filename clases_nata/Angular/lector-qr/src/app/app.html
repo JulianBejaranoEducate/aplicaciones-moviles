@@ -1,0 +1,12 @@
+<main class="contenedor">
+  @if (pantallaActual() === 'menu') {
+    <app-menu (alSeleccionar)="seleccionarModo($event)"></app-menu>
+  } @else {
+    <app-escaner 
+      [modo]="pantallaActual() === 'qr' ? 'qr' : 'barras'"
+      [resultado]="codigoDetectado()"
+      (alEscanear)="guardarResultado($event)"
+      (alVolver)="volverAlMenu()">
+    </app-escaner>
+  }
+</main>

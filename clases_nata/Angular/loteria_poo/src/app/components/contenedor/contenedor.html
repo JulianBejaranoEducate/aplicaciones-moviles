@@ -1,0 +1,41 @@
+<div class="lot-header">
+  <div class="lot-title">LOTERÍA UNIEMPRESARIAL</div>
+  <div class="lot-author">POR MALORY FARFAN</div>
+</div>
+
+<div class="lot-layout">
+  <section class="lot-panel left-panel">
+    <div class="balota-box">
+      <div class="balotas-row animated-balls">
+        <app-balota [valor]="number1()" />
+        <app-balota [valor]="number2()" />
+        <app-balota [valor]="number3()" />
+        <app-balota [valor]="number4()" />
+        <app-balota [valor]="number5()" />
+      </div>
+    </div>
+
+    <div class="buttons-panel">
+    <button type="button" (click)="playLotery()" class="lot-button">JUGAR</button>
+    <button type="button" (click)="buscarGanadores()" class="lot-button">VER JUGADORES</button>
+    </div>
+  </section>
+
+  <section class="lot-panel center-panel">
+    <h2>El número<br>ganador es:</h2>
+    <div class="winner-row">
+      <app-balota [valor]="number1()" />
+      <app-balota [valor]="number2()" />
+      <app-balota [valor]="number3()" />
+      <app-balota [valor]="number4()" />
+      <app-balota [valor]="number5()" />
+    </div>
+  </section>
+
+  <section class="lot-panel right-panel">
+    <app-jugadores
+      [numerosGanadores]="numerosSorteados()"
+      (cantidadGanadores)="onCantidadGanadores($event)"
+    />
+  </section>
+</div>

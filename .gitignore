@@ -1,47 +1,106 @@
-# .gitignore para los trabajos y proyectos desarrollados en (Angular y Node.Js) durante la clase
+# .gitignore para trabajos y proyectos de Angular, Node.js y Capacitor
 
-# Compiled output
+# ========================================
+# DEPENDENCIAS
+# ========================================
+
+**/node_modules/
+
+
+# ========================================
+# ANGULAR
+# ========================================
+
 **/dist/
+**/.angular/
 **/tmp/
 **/out-tsc/
 **/bazel-out/
 
-# Node
-**/node_modules/
+
+# ========================================
+# NODE.JS
+# ========================================
+
 **/npm-debug.log*
 **/yarn-error.log*
+**/pnpm-debug.log*
+**/*.log
 
-# IDEs and editors
+
+# ========================================
+# CAPACITOR / ANDROID / GRADLE
+# ========================================
+
+**/.gradle/
+**/android/.gradle/
+**/android/build/
+**/android/app/build/
+
+
+# ========================================
+# TESTING / COVERAGE
+# ========================================
+
+**/coverage/
+**/__screenshots__/
+testem.log
+
+
+# ========================================
+# IDEs Y EDITORES
+# ========================================
+
 **/.idea/
+**/.vscode/
+.history/
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
-
-# Visual Studio Code
-**/.vscode/
-.history/
-
-# Miscellaneous
-**/.angular/
 .sass-cache/
-/connect.lock
-**/coverage/
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
 
-# Local folders that should not be published
-/proyecto/
 
-# System files
+# ========================================
+# VARIABLES DE ENTORNO
+# ========================================
+
+**/.env
+**/.env.*
+!**/.env.example
+
+
+# ========================================
+# ARCHIVOS DEL SISTEMA
+# ========================================
+
 .DS_Store
+**/.DS_Store
 Thumbs.db
 
 
-# Environment variables (Node.js / Backend)
-**/.env
-**/.env.*
+# ========================================
+# ARCHIVOS TEMPORALES
+# ========================================
+
+**/*.tmp
+**/*.temp
+**/*.swp
+
+
+# ========================================
+# OTROS ARCHIVOS GENERADOS
+# ========================================
+
+/connect.lock
+/libpeerconnection.log
+/typings
+
+
+# ========================================
+# CARPETAS LOCALES QUE NO SE PUBLICAN
+# ========================================
+
+/proyecto/

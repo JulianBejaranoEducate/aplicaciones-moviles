@@ -1,0 +1,20 @@
+<div class="menu">
+  <div class="menu__header">
+    <span class="menu__title menu__title--left">LECTOR UNIMPREsarial</span>
+    <span class="menu__title menu__title--right">POR Malory Farfán</span>
+  </div>
+
+  <div class="menu__body">
+    <h2>SELECCIONE una opción</h2>
+
+    <div class="menu__options">
+      <button type="button" class="btn qr" (click)="seleccionar('qr')">
+        Escanear código QR
+      </button>
+
+      <button type="button" class="btn barras" (click)="seleccionar('barras')">
+        Escanear código de barras
+      </button>
+    </div>
+  </div>
+</div>
