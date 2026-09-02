@@ -1,28 +1,23 @@
-<div class="jugadores">
-  <h3 class="jugadores__titulo">Jugadores registrados</h3>
-
-  <ul class="lista">
+<div class="center">
+  <h3>Jugadores registrados</h3>
+  <ul>
     @for (j of jugadores(); track j.numeroJugado) {
-      <li class="jugador" [class.ganador]="numerosGanadores().includes(j.numeroJugado)">
-        <span class="jugador__nombre">{{ j.nombres }} {{ j.apellidos }}</span>
-        <span class="jugador__numero">{{ j.numeroJugado }}</span>
+      <li [class.ganador]="numerosGanadores().includes(j.numeroJugado)">
+        {{ j.nombres }} {{ j.apellidos }} - Número: {{ j.numeroJugado }}
       </li>
     }
   </ul>
 
   @if (numerosGanadores().length > 0) {
     @if (ganadores().length > 0) {
-      <h4 class="jugadores__subtitulo">Ganadores</h4>
-      <ul class="lista">
+      <h4>Ganadores</h4>
+      <ul>
         @for (g of ganadores(); track g.numeroJugado) {
-          <li class="jugador ganador">
-            <span class="jugador__nombre">{{ g.nombres }} {{ g.apellidos }}</span>
-            <span class="jugador__numero">{{ g.numeroJugado }}</span>
-          </li>
+          <li>{{ g.nombres }} {{ g.apellidos }} - Número: {{ g.numeroJugado }}</li>
         }
       </ul>
     } @else {
-      <p class="sin-ganadores">No hubo ganadores esta vez.</p>
+      <p>No hubo ganadores esta vez.</p>
     }
   }
 </div>

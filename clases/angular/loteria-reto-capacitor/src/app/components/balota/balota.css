@@ -1,20 +1,17 @@
 :host {
-    /* Tamaño fluido: 5 balotas caben en una sola fila incluso en celulares */
-    --balota-tamano: clamp(2.6rem, 14.5vw, 5.5rem);
     display: inline-block;
 }
 
 .formaBalota {
     position: relative;
-    width: var(--balota-tamano);
-    height: var(--balota-tamano);
+    width: 5.5rem;
+    height: 5.5rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    font-size: calc(var(--balota-tamano) * 0.45);
+    font-size: 2.5rem;
     font-weight: 800;
-    line-height: 1;
     color: var(--balota-texto, var(--baloto-azul));
     background: radial-gradient(
         circle at 32% 26%,
@@ -30,9 +27,51 @@
 .formaBalota::after {
     content: '';
     position: absolute;
-    bottom: calc(var(--balota-tamano) * 0.18);
-    width: calc(var(--balota-tamano) * 0.29);
+    bottom: 1rem;
+    width: 1.6rem;
     height: 3px;
     border-radius: 2px;
     background-color: var(--balota-linea, var(--baloto-azul));
+}
+
+@media (max-width: 600px) {
+    .formaBalota {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.8rem;
+    }
+
+    .formaBalota::after {
+        bottom: 0.7rem;
+        width: 1.1rem;
+    }
+}
+
+/* Teléfonos angostos: las 5 balotas deben caber en una sola fila */
+@media (max-width: 480px) {
+    .formaBalota {
+        width: 3.4rem;
+        height: 3.4rem;
+        font-size: 1.5rem;
+    }
+
+    .formaBalota::after {
+        bottom: 0.55rem;
+        width: 0.9rem;
+        height: 2px;
+    }
+}
+
+@media (max-width: 360px) {
+    .formaBalota {
+        width: 2.9rem;
+        height: 2.9rem;
+        font-size: 1.25rem;
+    }
+
+    .formaBalota::after {
+        bottom: 0.45rem;
+        width: 0.75rem;
+        height: 2px;
+    }
 }

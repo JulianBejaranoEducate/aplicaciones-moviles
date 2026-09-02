@@ -1,39 +1,32 @@
-<header class="cabecera">
-    <h1 class="titulo">Lotería de Uniempresarial</h1>
-    <p class="subtitulo">Sorteo de 5 balotas</p>
-</header>
+<h1 class="h1 center">Lotería de Uniempresarial</h1>
+<div class="center container">
+    <app-balota [valor]="number1()" />
+    <app-balota [valor]="number2()" />
+    <app-balota [valor]="number3()" />
+    <app-balota [valor]="number4()" />
+    <app-balota [valor]="number5()" />
+</div>
+<div class="center">
+    <button (click)="playLotery()" class="button">JUGAR</button>
+    <button (click)="buscarGanadores()" class="button">VER GANADORES</button>
+</div>
+<hr>
 
-<main class="pagina">
-    <section class="tablero">
-        <p class="tablero__etiqueta">Resultado del sorteo</p>
-        <div class="balotas">
-            <app-balota [valor]="number1()" />
-            <app-balota [valor]="number2()" />
-            <app-balota [valor]="number3()" />
-            <app-balota [valor]="number4()" />
-            <app-balota [valor]="number5()" />
-        </div>
-    </section>
+<section class="center">
+  <div>
+    <h2>{{ numberWin() }}</h2>
 
-    <div class="acciones">
-        <button (click)="playLotery()" class="button">JUGAR</button>
-        <button (click)="buscarGanadores()" class="button button-secundario">VER GANADORES</button>
-    </div>
+    @if (totalGanadores() > 0) {
+      <p>Se encontraron {{ totalGanadores() }} jugador(es) ganador(es).</p>
+    }
+  </div>
+</section>
 
-    <hr class="separador" />
-
-    <section class="resultado">
-        <h2 class="resultado__numero">{{ numberWin() }}</h2>
-
-        @if (totalGanadores() > 0) {
-            <p class="resultado__detalle">Se encontraron {{ totalGanadores() }} jugador(es) ganador(es).</p>
-        }
-    </section>
-
-    <section class="panel">
-        <app-jugadores
-            [numerosGanadores]="numerosSorteados()"
-            (cantidadGanadores)="onCantidadGanadores($event)"
-        />
-    </section>
-</main>
+<section class="shadow-lg">
+  <div>
+    <app-jugadores class="center"
+      [numerosGanadores]="numerosSorteados()"
+      (cantidadGanadores)="onCantidadGanadores($event)"
+    />
+  </div>
+</section>
